@@ -14,7 +14,15 @@
 ; un-comment following line if constants are needed
 ;(:constants )
 
-(:predicates ;todo: define predicates here
+(:predicates
+        (LAVA ?x ?y)
+        (FUNGUS ?x ?y)
+        (WELL ?x ?y)
+        (INVIRGUS ?x ?y)
+        (WIZARD ?x ?y)
+        (EXIT ?x ?y)
+        (at-wizard ?x ?y)
+        (at-invirgus ?x ?y)
 )
 
 
