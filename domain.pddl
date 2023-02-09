@@ -21,8 +21,6 @@
         (INVIRGUS ?x ?y)
         (WIZARD ?x ?y)
         (EXIT ?x ?y)
-        (at-wizard ?x ?y)
-        (at-invirgus ?x ?y)
 )
 
 
