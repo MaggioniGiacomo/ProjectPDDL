@@ -1,22 +1,20 @@
-;
-;  Problem file: rappresenta il mondo, ciò che deve succedere.
-;  :objects definisce gli oggetti che sono presenti nel mondo
-;  :init definisce le impostazioni iniziali
-;  :goal definisce ciò a cui bisogna arrivare
-;
+(define (problem WizardWithoutInvirgus)
+    (:domain maze)
+    (:objects
+        p1 p2 p3
+    )
 
-(define (problem problem_name) (:domain labirinto)
-(:objects 
-)
+    (:init
+        (at-wizard p1 p3)
+        (LAVA p2 p2) (LAVA p1 p1)
+        (at-fungus p1 p2)
+        (HOLE p3 p2)
+        (inc p1 p2) (inc p2 p3)
+        (dec p2 p1) (dec p3 p2)
+        (= (fungus-charges) 0)
+    )
 
-(:init
-    ;todo: put the initial state's facts and numeric values here
-)
-
-(:goal (and
-    ;todo: put the goal condition here
-))
-
-;un-comment the following line if metric is needed
-;(:metric minimize (???))
+    (:goal
+        (at-wizard p2 p1)
+    )
 )
