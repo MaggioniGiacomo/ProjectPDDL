@@ -162,12 +162,52 @@
             :precondition (and 
                 (inv-turn) 
                 (at-invirgus ?xinv ?yinv) (at-wizard ?xwiz ?ywiz)
-
-            )
+                (> ?ywiz ?yinv)
+                (not (LAVA ?xinv ?yn)) (not (HOLE ?xinv ?yn))
+                )
             :effect (and 
                 (not(inv-turn)) (wiz-turn)
-            )
+                (at-invirgus ?xinv ?yn)
+                )
         )
-        
+        (:action inv-down
+                :parameters (?xinv ?yinv ?yn ?xwiz ?ywiz)
+                :precondition (and
+                        (inv-turn)
+                        (at-invirgus ?xinv ?yinv) (at-wizard ?xwiz ?ywiz)
+                        (< ?ywiz ?yinv)
+                        (not (LAVA ?xinv ?yn)) (not (HOLE ?xinv ?yn))
+                )
+                :effect (and
+                        (not(inv-turn)) (wiz-turn)
+                        (at-invirgus ?xinv ?yn)
+                )
+        )
+        (:action inv-right
+                :parameters (?xinv ?yinv ?xn ?xwiz ?ywiz)
+                :precondition (and
+                        (inv-turn)
+                        (at-invirgus ?xinv ?yinv) (at-wizard ?xwiz ?ywiz)
+                        (> ?xwiz ?xinv)
+                        (not (LAVA ?xn ?yinv)) (not (HOLE ?xn ?yinv))
+                )
+                :effect (and
+                        (not(inv-turn)) (wiz-turn)
+                        (at-invirgus ?xn ?yinv)
+                )
+        )
+        (:action inv-down
+                :parameters (?xinv ?yinv ?xn ?xwiz ?ywiz)
+                :precondition (and
+                        (inv-turn)
+                        (at-invirgus ?xinv ?yinv) (at-wizard ?xwiz ?ywiz)
+                        (< ?xwiz ?xinv)
+                        (not (LAVA ?xn ?yinv)) (not (HOLE ?xn ?yinv))
+                )
+                :effect (and
+                        (not(inv-turn)) (wiz-turn)
+                        (at-invirgus ?xn ?yinv)
+                )
+        )
 
 )
