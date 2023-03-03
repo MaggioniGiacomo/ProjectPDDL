@@ -157,12 +157,13 @@
                 :effect (wizard-exit)
         )
 
-        (:action inv-up
+        ;esempio mossa invurgus, per ora non esegue l'azione e passa solo il turno
+        (:action inv-action
             :parameters (?xinv ?yinv ?yn ?xwiz ?ywiz)
             :precondition (and 
                 (inv-turn) 
                 (at-invirgus ?xinv ?yinv) (at-wizard ?xwiz ?ywiz)
-
+                ;TODO aggiunta comparazione posizione invurgus mago e controllo nuova posizione corretta
             )
             :effect (and 
                 (not(inv-turn)) (wiz-turn)
